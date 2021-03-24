@@ -21,11 +21,11 @@ exports.search = function(arguments, receivedMessage) {
     let getData = html => {
         data = [];
         const $ =  cheerio.load(html);
-        $('.result').each((i, elem) => {
+        $('.unified-search__layout__main').each((i, elem) => {
             if (i < search_results) {
                 data.push({
-                    title: $(elem).find('.result-link').attr("data-name"),
-                    link: $(elem).find('.result-link').attr('href')
+                    title: $(elem).find('.unified-search__result__title').attr("data-title"),
+                    link: $(elem).find('.unified-search__result__title').attr('href')
                 });
             }
         });
